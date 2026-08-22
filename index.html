@@ -1,60 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akash Chauhan | Data Scientist & AI/ML Developer</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 40px 20px; background: #f9f9f9; }
-        header { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        h1 { margin: 0 0 10px 0; color: #111; }
-        .tagline { font-size: 1.2rem; color: #555; margin-bottom: 20px; }
-        section { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; color: #222; }
-        .project { margin-bottom: 20px; }
-        .project h3 { margin: 0 0 5px 0; color: #0066cc; }
-        a { color: #0066cc; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        ul { padding-left: 20px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akash Chauhan — AI/ML Engineer &amp; NLP Educator</title>
+<meta name="description" content="AI/ML &amp; NLP Engineer with 7 years teaching Computer Science and a decade in NLP. Six production RAG/ML systems shipped in 2026, each documented and deployed.">
+<meta property="og:title" content="Akash Chauhan — AI/ML Engineer &amp; NLP Educator">
+<meta property="og:description" content="Ten years in NLP. Seven teaching it. Six systems shipped in 2026.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%2314213D'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23F7F6F2' text-anchor='middle'%3EAC%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --paper:#F7F6F2;
+    --ink:#1A1D23;
+    --navy:#14213D;
+    --amber:#B5762C;
+    --muted:#6B7280;
+    --line:#E1DFD8;
+    --card:#FFFFFF;
+    --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px}
+
+  /* NAV */
+  nav{position:sticky;top:0;background:rgba(247,246,242,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:10}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;flex-wrap:wrap;gap:10px}
+  .nav-name{font-family:var(--mono);font-size:13px;letter-spacing:.03em;color:var(--navy);font-weight:600}
+  .nav-links{display:flex;gap:18px;font-size:13px;font-family:var(--mono)}
+  .nav-links a{text-decoration:none;color:var(--muted);border-bottom:1px solid transparent}
+  .nav-links a:hover{color:var(--navy);border-bottom-color:var(--navy)}
+
+  /* HERO */
+  header.hero{padding:72px 0 40px}
+  .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;color:var(--amber);text-transform:uppercase;margin:0 0 14px}
+  h1{font-family:var(--serif);font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 18px;font-weight:400}
+  h1 em{font-style:italic;color:var(--navy)}
+  .hero-sub{font-size:17px;color:#3a3f4a;max-width:640px;margin:0 0 28px}
+  .hero-links{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;font-family:var(--mono);font-size:13px;padding:10px 16px;border-radius:3px;text-decoration:none;border:1px solid var(--navy)}
+  .btn-solid{background:var(--navy);color:var(--paper)}
+  .btn-solid:hover{background:#1e2e56}
+  .btn-outline{color:var(--navy)}
+  .btn-outline:hover{background:var(--navy);color:var(--paper)}
+
+  /* TIMELINE — signature element */
+  .timeline-section{padding:20px 0 56px;border-bottom:1px solid var(--line)}
+  .timeline-label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:22px}
+  .timeline{display:flex;flex-direction:column;border-left:2px solid var(--line);margin-left:6px}
+  .tl-item{position:relative;padding:0 0 26px 26px}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item::before{content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--navy)}
+  .tl-item.now::before{background:var(--amber);border-color:var(--amber)}
+  .tl-date{font-family:var(--mono);font-size:12.5px;color:var(--amber);margin-bottom:3px}
+  .tl-title{font-weight:600;font-size:15.5px;margin-bottom:2px}
+  .tl-desc{font-size:14px;color:var(--muted)}
+
+  /* SECTIONS */
+  section{padding:52px 0}
+  section.alt{background:#F1EFE9}
+  .section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:28px}
+  .section-num{font-family:var(--mono);font-size:12.5px;color:var(--amber)}
+  h2{font-family:var(--serif);font-size:28px;font-weight:400;margin:0}
+
+  p.lede{font-size:16px;color:#3a3f4a;max-width:680px}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;margin-top:8px}
+  .skill-card h3{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);margin:0 0 10px}
+  .skill-card p{font-size:14px;color:#3a3f4a;margin:0}
+
+  /* PROJECTS */
+  .project{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:22px 24px;margin-bottom:16px}
+  .project-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+  .project h3{font-size:17px;margin:0;font-weight:600}
+  .project-links{display:flex;gap:12px;font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+  .project-links a{text-decoration:none;color:var(--navy);border-bottom:1px solid var(--line)}
+  .project-links a:hover{border-bottom-color:var(--navy)}
+  .project p.desc{font-size:14.5px;color:#3a3f4a;margin:0 0 12px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{font-family:var(--mono);font-size:11px;color:var(--muted);background:#F1EFE9;border:1px solid var(--line);padding:3px 8px;border-radius:3px}
+
+  /* EDU / CERTS */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  @media (max-width:640px){.two-col{grid-template-columns:1fr}}
+  .list-item{margin-bottom:14px}
+  .list-item .t{font-weight:600;font-size:14.5px}
+  .list-item .s{font-size:13.5px;color:var(--muted)}
+
+  footer{padding:48px 0 60px;text-align:center}
+  footer .name{font-family:var(--serif);font-size:22px;margin-bottom:8px}
+  footer .sub{font-size:13.5px;color:var(--muted);margin-bottom:20px}
+  footer .hero-links{justify-content:center}
+  .fine{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:30px}
+
+  /* SCROLL REVEAL — one restrained, orchestrated moment, not scattered effects */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+  .reveal.in-view{opacity:1;transform:none}
+</style>
 </head>
 <body>
 
-    <header>
-        <h1>Akash Chauhan</h1>
-        <div class="tagline">Data Scientist & AI/ML Developer</div>
-        <p>Passionate about building scalable machine learning workflows, analyzing complex datasets, and turning data into actionable insights.</p>
-        <p>
-            <a href="mailto:your-email@example.com">Email</a> | 
-            <a href="https://github.com/your-username" target="_blank">GitHub</a> | 
-            <a href="https://linkedin.com/in/your-username" target="_blank">LinkedIn</a>
-        </p>
-    </header>
+<nav>
+  <div class="wrap">
+    <span class="nav-name">AKASH CHAUHAN</span>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="https://github.com/AkashChauhanSoftEngi" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/akash-c-4b7541b0/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</nav>
 
-    <section>
-        <h2>Featured Projects</h2>
-        
-        <div class="project">
-            <h3>Machine Learning Predictive Pipeline</h3>
-            <p>Developed an end-to-end predictive model using Python and scikit-learn to forecast trends, featuring data cleaning, exploratory data analysis (EDA), and hyperparameter tuning.</p>
-            <p><small><strong>Tech Stack:</strong> Python, Pandas, Scikit-Learn, Jupyter</small></p>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">AI/ML Engineer &middot; NLP Engineer &middot; Assistant Professor, CSE</p>
+    <h1>Ten years in NLP.<br>Seven <em>teaching</em> it.<br>Six systems <em>shipped</em> in 2026.</h1>
+    <p class="hero-sub">I've been building language systems since an IBM NLP internship in 2011 — spell-correction algorithms, edit distance, retrieval. Today I teach NLP &amp; Computer Vision as an Assistant Professor, and in 2026 I went back to hands-on building: six production AI/ML systems, each shipped as a live app, not a notebook.</p>
+    <div class="hero-links">
+      <a class="btn btn-solid" href="mailto:akashchauhan.sejapan@gmail.com">Get in touch</a>
+      <a class="btn btn-outline" href="#projects">See the projects</a>
+    </div>
+  </div>
+</header>
+
+<section class="timeline-section">
+  <div class="wrap">
+    <p class="timeline-label reveal">The Arc</p>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-date">Jul 2011 — Apr 2012</div>
+        <div class="tl-title">R&amp;D Intern, IBM India</div>
+        <div class="tl-desc">Built NLP algorithms (LCS, Soundex, Edit Distance) for an SMS FAQ retrieval &amp; auto-correction system. Received an IBM Appreciation Award.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">2012 — 2014</div>
+        <div class="tl-title">M.Tech, Software Engineering — Delhi Technological University</div>
+        <div class="tl-desc">First division with honors. GATE 2012: AIR 984 (99.4 percentile).</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">Nov 2014 — Feb 2017</div>
+        <div class="tl-title">Software Engineer, Hikari Tsushin Inc. (Japan)</div>
+        <div class="tl-desc">Java/Spring web applications, Python automation, database systems — three years shipping production software.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">~2019 — Present</div>
+        <div class="tl-title">Assistant Professor, Computer Science &amp; Engineering</div>
+        <div class="tl-desc">Teaching NLP and Computer Vision; mentoring student projects; designing curriculum.</div>
+      </div>
+      <div class="tl-item now reveal">
+        <div class="tl-date">2026</div>
+        <div class="tl-title">Six AI/ML systems, designed and deployed</div>
+        <div class="tl-desc">RAG pipelines, transformer fine-tuning, classical NLP model comparisons — each live, each documented, each open source. Now looking for a remote AI/ML/NLP Engineer role.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal"><span class="section-num">01</span><h2>What I work with</h2></div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <h3>NLP &amp; LLMs</h3>
+        <p>RAG pipelines, transformer fine-tuning (T5, FLAN-T5), Hugging Face Transformers &amp; Datasets, FAISS, embeddings, prompt engineering, Gemini &amp; Claude APIs</p>
+      </div>
+      <div class="skill-card reveal">
+        <h3>Machine Learning</h3>
+        <p>scikit-learn, model selection &amp; tuning, probability calibration, TF-IDF / BOW / Word2Vec feature engineering</p>
+      </div>
+      <div class="skill-card reveal">
+        <h3>Software Engineering</h3>
+        <p>Python, Java, J2EE, Flask, REST APIs, Spring/Struts2 MVC, SQL (MySQL, Oracle), Git</p>
+      </div>
+      <div class="skill-card reveal">
+        <h3>Deployment</h3>
+        <p>Render, Gunicorn, environment-driven config for swappable API/local backends</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="projects">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="section-num">02</span><h2>2026 Projects</h2></div>
+    <p class="lede reveal" style="margin-bottom:28px">Six systems, each with a documented decision trail — what was compared, what was chosen, and why. Not single-model guesses.</p>
+
+    <div class="project reveal">
+      <div class="project-head">
+        <h3>Multimodal Document RAG Assistant</h3>
+        <div class="project-links">
+          <a href="https://intelligent-multimodal-document-rag.onrender.com/" target="_blank" rel="noopener">Live demo</a>
+          <a href="https://github.com/AkashChauhanSoftEngi/intelligent-multimodal-document-rag-assistant" target="_blank" rel="noopener">GitHub</a>
         </div>
+      </div>
+      <p class="desc">Ingests PDF/PPTX and extracts text, tables, and images/charts separately — tables cleaned to Markdown, images captioned via Gemini Vision — then indexed together in FAISS for grounded, page-cited answers. API-first architecture with local fallback for embeddings and table parsing.</p>
+      <div class="tags"><span class="tag">RAG</span><span class="tag">FAISS</span><span class="tag">Gemini Vision</span><span class="tag">Flask</span></div>
+    </div>
 
-        <div class="project">
-            <h3>Advanced Data Analysis & Visualization</h3>
-            <p>Built comprehensive statistical scripts and data visualizations to uncover behavioral metrics and drive data-informed decision making.</p>
-            <p><small><strong>Tech Stack:</strong> R, ggplot2, SQL</small></p>
+    <div class="project reveal">
+      <div class="project-head">
+        <h3>Document QA System (RAG)</h3>
+        <div class="project-links">
+          <a href="https://intelligent-document-qa-system-rag.onrender.com/" target="_blank" rel="noopener">Live demo</a>
+          <a href="https://github.com/AkashChauhanSoftEngi/intelligent-document-qa-system-rag" target="_blank" rel="noopener">GitHub</a>
         </div>
-    </section>
+      </div>
+      <p class="desc">Text-based RAG system for PDF/DOCX/TXT using the Gemini Embedding API, FAISS, and Gemini 2.5 Flash — with retrieved-context display and live processing/memory metrics.</p>
+      <div class="tags"><span class="tag">RAG</span><span class="tag">FAISS</span><span class="tag">Gemini API</span></div>
+    </div>
 
-    <section>
-        <h2>Core Skills</h2>
-        <ul>
-            <li><strong>Languages:</strong> Python, R, SQL</li>
-            <li><strong>Data Science & ML:</strong> Pandas, NumPy, Scikit-Learn, Data Wrangling, EDA</li>
-            <li><strong>Tools & Platforms:</strong> Git, Jupyter Notebooks, cPanel</li>
-        </ul>
-    </section>
+    <div class="project reveal">
+      <div class="project-head">
+        <h3>LLM Fine-Tuning with Hugging Face</h3>
+        <div class="project-links">
+          <a href="https://github.com/AkashChauhanSoftEngi/llm-finetuning-with-huggingface" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <p class="desc">Fine-tuned T5 on a custom multi-task dataset (summarization, Q&amp;A, classification, paraphrasing) using a unified text-to-text format. Tuned the training pipeline — batch size, gradient accumulation, Adafactor optimizer — to fit inside a consumer laptop's memory.</p>
+      <div class="tags"><span class="tag">Transformers</span><span class="tag">Fine-tuning</span><span class="tag">T5</span></div>
+    </div>
+
+    <div class="project reveal">
+      <div class="project-head">
+        <h3>Intelligent Text Summarization</h3>
+        <div class="project-links">
+          <a href="https://intelligent-text-summarization.onrender.com/" target="_blank" rel="noopener">Live demo</a>
+          <a href="https://github.com/AkashChauhanSoftEngi/intelligent-text-summarization-transformers" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <p class="desc">Benchmarked BART vs. T5-Small on ROUGE-1/2/L, inference time, and model size on CNN/DailyMail. Documented a deliberate quality-vs-memory trade-off to fit a 512MB free-tier deployment — shipped T5-Small in production while preserving BART's higher-quality results for reference.</p>
+      <div class="tags"><span class="tag">BART</span><span class="tag">T5</span><span class="tag">ROUGE</span></div>
+    </div>
+
+    <div class="project reveal">
+      <div class="project-head">
+        <h3>Intelligent Resume Screening System</h3>
+        <div class="project-links">
+          <a href="https://intelligent-resume-screening-system-nlp.onrender.com/" target="_blank" rel="noopener">Live demo</a>
+          <a href="https://github.com/AkashChauhanSoftEngi/intelligent-resume-screening-system-nlp-ml" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <p class="desc">Compared 3 feature representations (BOW, TF-IDF, Word2Vec) across 4 classifiers — 8 combinations benchmarked before committing. Tuned the winning TF-IDF + Linear SVM pipeline to 70.6% accuracy classifying resumes into 24 job categories.</p>
+      <div class="tags"><span class="tag">TF-IDF</span><span class="tag">scikit-learn</span><span class="tag">NLTK</span></div>
+    </div>
+
+    <div class="project reveal">
+      <div class="project-head">
+        <h3>SpaceX Falcon 9 Landing Prediction</h3>
+        <div class="project-links">
+          <a href="https://spacex-falcon9-landing-prediction-ml.onrender.com/" target="_blank" rel="noopener">Live demo</a>
+          <a href="https://github.com/AkashChauhanSoftEngi/SpaceX-Falcon9-Landing-Prediction-ML-Project" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <p class="desc">End-to-end ML pipeline — API + web-scraped data, EDA, feature engineering, GridSearchCV model selection — predicting booster landing outcomes at 87.5% cross-validated accuracy. Wrapped in CalibratedClassifierCV so confidence scores are honest, not just raw leaf purity.</p>
+      <div class="tags"><span class="tag">scikit-learn</span><span class="tag">GridSearchCV</span><span class="tag">Calibration</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="section-num">03</span><h2>Background</h2></div>
+    <div class="two-col">
+      <div class="reveal">
+        <h3 style="font-family:var(--mono);font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--navy);margin-bottom:14px">Education</h3>
+        <div class="list-item">
+          <div class="t">M.Tech, Software Engineering</div>
+          <div class="s">Delhi Technological University — Sept 2014, First Division with Honors</div>
+        </div>
+        <div class="list-item">
+          <div class="t">B.Tech, Computer Science &amp; Engineering</div>
+          <div class="s">Uttarakhand Technical University — Nov 2012, First Division with Honors</div>
+        </div>
+        <div class="list-item">
+          <div class="t">GATE 2012</div>
+          <div class="s">AIR 984 &middot; 99.4 percentile</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3 style="font-family:var(--mono);font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--navy);margin-bottom:14px">Certifications &amp; Publication</h3>
+        <div class="list-item">
+          <div class="t">Oracle Database 12c: SQL Fundamentals</div>
+        </div>
+        <div class="list-item">
+          <div class="t">GAIT — Global Assessment of Information Technology</div>
+        </div>
+        <div class="list-item">
+          <div class="t">JLPT-N4, Japanese Language Proficiency</div>
+        </div>
+        <div class="list-item">
+          <div class="t">"Secure Sensor Node with Raspberry Pi"</div>
+          <div class="s">IEEE IMPACT 2013 International Conference</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="alt">
+  <div class="wrap">
+    <div class="name">Let's talk.</div>
+    <div class="sub">Open to remote AI/ML &amp; NLP Engineer roles &middot; India, IST</div>
+    <div class="hero-links">
+      <a class="btn btn-solid" href="mailto:akashchauhan.sejapan@gmail.com">akashchauhan.sejapan@gmail.com</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/akash-c-4b7541b0/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-outline" href="https://github.com/AkashChauhanSoftEngi" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="fine">+81 70-1490-1991</div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var items = document.querySelectorAll('.reveal');
+    if (prefersReduced || !('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('in-view'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(function (el) { observer.observe(el); });
+  })();
+</script>
 
 </body>
 </html>
