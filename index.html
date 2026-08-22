@@ -82,9 +82,13 @@
   .project{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:22px 24px;margin-bottom:16px}
   .project-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:8px}
   .project h3{font-size:17px;margin:0;font-weight:600}
-  .project-links{display:flex;gap:12px;font-family:var(--mono);font-size:12.5px;white-space:nowrap}
-  .project-links a{text-decoration:none;color:var(--navy);border-bottom:1px solid var(--line)}
-  .project-links a:hover{border-bottom-color:var(--navy)}
+  .project-links{display:flex;gap:8px;font-family:var(--mono);align-items:center}
+  .project-links a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-size:11.5px;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid;white-space:nowrap;transition:background .15s ease,color .15s ease}
+  .link-live{color:var(--amber);border-color:rgba(181,118,44,0.4);background:rgba(181,118,44,0.08)}
+  .link-live:hover{background:var(--amber);color:#fff;border-color:var(--amber)}
+  .link-live::before{content:"";width:6px;height:6px;margin-right:2px;border-radius:50%;background:currentColor;display:inline-block}
+  .link-code{color:var(--navy);border-color:var(--line);background:#F7F6F2}
+  .link-code:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
   .project p.desc{font-size:14.5px;color:#3a3f4a;margin:0 0 12px}
   .tags{display:flex;flex-wrap:wrap;gap:6px}
   .tag{font-family:var(--mono);font-size:11px;color:var(--muted);background:#F1EFE9;border:1px solid var(--line);padding:3px 8px;border-radius:3px}
@@ -102,10 +106,22 @@
   footer .hero-links{justify-content:center}
   .fine{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:30px}
 
-  /* SCROLL REVEAL — one restrained, orchestrated moment, not scattered effects */
-  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
-  .reveal.in-view{opacity:1;transform:none}
+  /* SCROLL REVEAL — progressive enhancement only.
+     Content is visible by default; the hidden starting state is applied
+     ONLY once a synchronous head script confirms JS + IntersectionObserver
+     support, so a JS failure or unsupported browser never hides content. */
+  html.js-reveal .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+  html.js-reveal .reveal.in-view{opacity:1;transform:none}
 </style>
+<script>
+  // Synchronous, runs before body paints. Only opts into the hidden
+  // starting state if we're confident we can also reveal it again.
+  (function () {
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('js-reveal');
+    }
+  })();
+</script>
 </head>
 <body>
 
@@ -199,8 +215,8 @@
       <div class="project-head">
         <h3>Multimodal Document RAG Assistant</h3>
         <div class="project-links">
-          <a href="https://intelligent-multimodal-document-rag.onrender.com/" target="_blank" rel="noopener">Live demo</a>
-          <a href="https://github.com/AkashChauhanSoftEngi/intelligent-multimodal-document-rag-assistant" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://intelligent-multimodal-document-rag.onrender.com/" target="_blank" rel="noopener" class="link-live">Live demo</a>
+          <a href="https://github.com/AkashChauhanSoftEngi/intelligent-multimodal-document-rag-assistant" target="_blank" rel="noopener" class="link-code">GitHub</a>
         </div>
       </div>
       <p class="desc">Ingests PDF/PPTX and extracts text, tables, and images/charts separately — tables cleaned to Markdown, images captioned via Gemini Vision — then indexed together in FAISS for grounded, page-cited answers. API-first architecture with local fallback for embeddings and table parsing.</p>
@@ -211,8 +227,8 @@
       <div class="project-head">
         <h3>Document QA System (RAG)</h3>
         <div class="project-links">
-          <a href="https://intelligent-document-qa-system-rag.onrender.com/" target="_blank" rel="noopener">Live demo</a>
-          <a href="https://github.com/AkashChauhanSoftEngi/intelligent-document-qa-system-rag" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://intelligent-document-qa-system-rag.onrender.com/" target="_blank" rel="noopener" class="link-live">Live demo</a>
+          <a href="https://github.com/AkashChauhanSoftEngi/intelligent-document-qa-system-rag" target="_blank" rel="noopener" class="link-code">GitHub</a>
         </div>
       </div>
       <p class="desc">Text-based RAG system for PDF/DOCX/TXT using the Gemini Embedding API, FAISS, and Gemini 2.5 Flash — with retrieved-context display and live processing/memory metrics.</p>
@@ -223,7 +239,7 @@
       <div class="project-head">
         <h3>LLM Fine-Tuning with Hugging Face</h3>
         <div class="project-links">
-          <a href="https://github.com/AkashChauhanSoftEngi/llm-finetuning-with-huggingface" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/AkashChauhanSoftEngi/llm-finetuning-with-huggingface" target="_blank" rel="noopener" class="link-code">GitHub</a>
         </div>
       </div>
       <p class="desc">Fine-tuned T5 on a custom multi-task dataset (summarization, Q&amp;A, classification, paraphrasing) using a unified text-to-text format. Tuned the training pipeline — batch size, gradient accumulation, Adafactor optimizer — to fit inside a consumer laptop's memory.</p>
@@ -234,8 +250,8 @@
       <div class="project-head">
         <h3>Intelligent Text Summarization</h3>
         <div class="project-links">
-          <a href="https://intelligent-text-summarization.onrender.com/" target="_blank" rel="noopener">Live demo</a>
-          <a href="https://github.com/AkashChauhanSoftEngi/intelligent-text-summarization-transformers" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://intelligent-text-summarization.onrender.com/" target="_blank" rel="noopener" class="link-live">Live demo</a>
+          <a href="https://github.com/AkashChauhanSoftEngi/intelligent-text-summarization-transformers" target="_blank" rel="noopener" class="link-code">GitHub</a>
         </div>
       </div>
       <p class="desc">Benchmarked BART vs. T5-Small on ROUGE-1/2/L, inference time, and model size on CNN/DailyMail. Documented a deliberate quality-vs-memory trade-off to fit a 512MB free-tier deployment — shipped T5-Small in production while preserving BART's higher-quality results for reference.</p>
@@ -246,8 +262,8 @@
       <div class="project-head">
         <h3>Intelligent Resume Screening System</h3>
         <div class="project-links">
-          <a href="https://intelligent-resume-screening-system-nlp.onrender.com/" target="_blank" rel="noopener">Live demo</a>
-          <a href="https://github.com/AkashChauhanSoftEngi/intelligent-resume-screening-system-nlp-ml" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://intelligent-resume-screening-system-nlp.onrender.com/" target="_blank" rel="noopener" class="link-live">Live demo</a>
+          <a href="https://github.com/AkashChauhanSoftEngi/intelligent-resume-screening-system-nlp-ml" target="_blank" rel="noopener" class="link-code">GitHub</a>
         </div>
       </div>
       <p class="desc">Compared 3 feature representations (BOW, TF-IDF, Word2Vec) across 4 classifiers — 8 combinations benchmarked before committing. Tuned the winning TF-IDF + Linear SVM pipeline to 70.6% accuracy classifying resumes into 24 job categories.</p>
@@ -258,8 +274,8 @@
       <div class="project-head">
         <h3>SpaceX Falcon 9 Landing Prediction</h3>
         <div class="project-links">
-          <a href="https://spacex-falcon9-landing-prediction-ml.onrender.com/" target="_blank" rel="noopener">Live demo</a>
-          <a href="https://github.com/AkashChauhanSoftEngi/SpaceX-Falcon9-Landing-Prediction-ML-Project" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://spacex-falcon9-landing-prediction-ml.onrender.com/" target="_blank" rel="noopener" class="link-live">Live demo</a>
+          <a href="https://github.com/AkashChauhanSoftEngi/SpaceX-Falcon9-Landing-Prediction-ML-Project" target="_blank" rel="noopener" class="link-code">GitHub</a>
         </div>
       </div>
       <p class="desc">End-to-end ML pipeline — API + web-scraped data, EDA, feature engineering, GridSearchCV model selection — predicting booster landing outcomes at 87.5% cross-validated accuracy. Wrapped in CalibratedClassifierCV so confidence scores are honest, not just raw leaf purity.</p>
@@ -322,21 +338,26 @@
 
 <script>
   (function () {
-    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!document.documentElement.classList.contains('js-reveal')) return; // progressive enhancement opted out already
     var items = document.querySelectorAll('.reveal');
-    if (prefersReduced || !('IntersectionObserver' in window)) {
-      items.forEach(function (el) { el.classList.add('in-view'); });
-      return;
+    var revealAll = function () { items.forEach(function (el) { el.classList.add('in-view'); }); };
+
+    try {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      items.forEach(function (el) { observer.observe(el); });
+    } catch (e) {
+      revealAll(); // observer failed to construct — just show everything
     }
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    items.forEach(function (el) { observer.observe(el); });
+
+    // Belt-and-suspenders: whatever happens, nothing stays hidden forever.
+    window.addEventListener('load', function () { setTimeout(revealAll, 1200); });
   })();
 </script>
 
