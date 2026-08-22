@@ -99,6 +99,13 @@
   .list-item{margin-bottom:14px}
   .list-item .t{font-weight:600;font-size:14.5px}
   .list-item .s{font-size:13.5px;color:var(--muted)}
+  
+  .publication-card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:18px 20px;margin-bottom:12px}
+  .publication-card .pub-title{font-weight:600;font-size:14.5px;color:var(--navy);margin-bottom:4px}
+  .publication-card .pub-venue{font-size:13px;color:var(--muted)}
+  .scholar-btn-wrap{margin-top:20px}
+  .btn-scholar{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12.5px;padding:9px 16px;border-radius:4px;text-decoration:none;background:var(--navy);color:var(--paper);border:1px solid var(--navy);transition:background .15s ease}
+  .btn-scholar:hover{background:#1e2e56}
 
   footer{padding:48px 0 60px;text-align:center}
   footer .name{font-family:var(--serif);font-size:22px;margin-bottom:8px}
@@ -106,16 +113,10 @@
   footer .hero-links{justify-content:center}
   .fine{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:30px}
 
-  /* SCROLL REVEAL — progressive enhancement only.
-     Content is visible by default; the hidden starting state is applied
-     ONLY once a synchronous head script confirms JS + IntersectionObserver
-     support, so a JS failure or unsupported browser never hides content. */
   html.js-reveal .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
   html.js-reveal .reveal.in-view{opacity:1;transform:none}
 </style>
 <script>
-  // Synchronous, runs before body paints. Only opts into the hidden
-  // starting state if we're confident we can also reveal it again.
   (function () {
     if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       document.documentElement.classList.add('js-reveal');
@@ -302,7 +303,7 @@
 <section id="experience">
   <div class="wrap">
     <div class="section-head reveal"><span class="section-num">03</span><h2>Background</h2></div>
-    <div class="two-col">
+    <div class="two-col" style="margin-bottom:36px">
       <div class="reveal">
         <h3 style="font-family:var(--mono);font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--navy);margin-bottom:14px">Education</h3>
         <div class="list-item">
@@ -319,7 +320,7 @@
         </div>
       </div>
       <div class="reveal">
-        <h3 style="font-family:var(--mono);font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--navy);margin-bottom:14px">Certifications &amp; Publication</h3>
+        <h3 style="font-family:var(--mono);font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--navy);margin-bottom:14px">Certifications &amp; Patents</h3>
         <div class="list-item">
           <div class="t">Oracle Database 12c: SQL Fundamentals</div>
         </div>
@@ -335,6 +336,26 @@
         </div>
       </div>
     </div>
+
+    <!-- Selected Research Publications Block -->
+    <div class="reveal" style="border-top:1px solid var(--line);padding-top:28px;">
+      <h3 style="font-family:var(--mono);font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--navy);margin-bottom:16px">Selected Research Publications</h3>
+      
+      <div class="publication-card">
+        <div class="pub-title">Deep feature extraction and optimized VGG16-SVM architecture for breast cancer characterization</div>
+        <div class="pub-venue">Discover Computing (Springer Nature), 2025</div>
+      </div>
+
+      <div class="publication-card">
+        <div class="pub-title">From GANs to Transformers: A Comprehensive Survey of Generative AI Architectures, Benchmarks and Applications</div>
+        <div class="pub-venue">International Conference on Advanced Computing and Emerging Technologies, 2025</div>
+      </div>
+
+      <div class="scholar-btn-wrap">
+        <a class="btn-scholar" href="https://scholar.google.com/citations?user=LgKPNDkAAAAJ&hl=en&authuser=4" target="_blank" rel="noopener">Check all papers on Google Scholar &rarr;</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -353,7 +374,7 @@
 
 <script>
   (function () {
-    if (!document.documentElement.classList.contains('js-reveal')) return; // progressive enhancement opted out already
+    if (!document.documentElement.classList.contains('js-reveal')) return;
     var items = document.querySelectorAll('.reveal');
     var revealAll = function () { items.forEach(function (el) { el.classList.add('in-view'); }); };
 
@@ -368,10 +389,9 @@
       }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
       items.forEach(function (el) { observer.observe(el); });
     } catch (e) {
-      revealAll(); // observer failed to construct — just show everything
+      revealAll();
     }
 
-    // Belt-and-suspenders: whatever happens, nothing stays hidden forever.
     window.addEventListener('load', function () { setTimeout(revealAll, 1200); });
   })();
 </script>
